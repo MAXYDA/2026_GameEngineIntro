@@ -1,2 +1,6 @@
-# 2026_GameEngineIntro
-게임엔진입문 프로잭트
+# 2026\_GameEngineIntro
+
+2026147006 김찬
+
+1
+
