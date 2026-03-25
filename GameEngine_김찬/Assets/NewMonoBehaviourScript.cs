@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,11 +32,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(moveInput.x > 0)
+        if (moveInput.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (moveInput.x < 0) 
+        else if (moveInput.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -45,6 +48,11 @@ public class PlayerController : MonoBehaviour
         {
             myAnimator.SetBool("move", false);
         }
-            transform.Translate(Vector3.right * moveSpeed * moveInput.x * Time.deltaTime);
+        transform.Translate(Vector3.right * moveSpeed * moveInput.x * Time.deltaTime);
     }
-}
+        private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SceneManager.LoadScene("PlayScene_" + collision.name);
+    }
+    }
+
